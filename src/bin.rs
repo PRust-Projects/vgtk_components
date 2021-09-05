@@ -12,6 +12,7 @@ use vgtk_components::checkbox::CheckBox;
 use vgtk_components::date::{Date, DateInput};
 use vgtk_components::dropdown::Dropdown;
 use vgtk_components::file_chooser::FileChooser;
+use vgtk_components::passwordbox::PasswordBox;
 use vgtk_components::phone_number::PhoneNumber;
 use vgtk_components::progress_bar::ProgressBar;
 use vgtk_components::textbox::TextBox;
@@ -124,6 +125,7 @@ impl Component for Model {
                         <@DateInput label=Some(String::from("Date:")) full_width=true date=DATE.clone() editable=false />
                         <@TextBox label=Some(String::from("Test Textbox:")) text=TEXTBOX_TEXT.clone() on_changed=|value| Message::PrintString { value } />
                         <@TextBox text=TEXTBOX_TEXT.clone() on_changed=|value| Message::PrintString { value } />
+                        <@PasswordBox label=Some(String::from("Password")) full_width=true on_changed=|value| Message::PrintString { value } />
                         <@PhoneNumber label=Some(String::from("Phone Number:")) full_width=true on_changed=|value| Message::PrintString { value } />
                         <Box spacing=10>
                             <@ProgressBar progress_text=self.progress_text.borrow().clone() progress_fraction=self.progress_fraction />
